@@ -1,0 +1,29 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AWSBucketPermissionsCheck",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "config.amazonaws.com",
+                    "cloudtrail.amazonaws.com"
+                ]
+            },
+            "Action": "s3:GetBucketAcl",
+            "Resource": "arn:aws:s3:::aws-controltower-logs-<account-number>-us-east-1"
+        },
+        {
+            "Sid": "AWSBucketDelivery",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "config.amazonaws.com",
+                    "cloudtrail.amazonaws.com"
+                ]
+            },
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::aws-controltower-logs-<account-number>-us-east-1/<Random>/AWSLogs/*/*"
+        }
+    ]
+}
